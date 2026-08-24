@@ -1,0 +1,3522 @@
+/* ── Google Fonts ────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@import "tailwindcss";
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   VIBE CUT — Design System
+   Premium Men's Salon Visual Identity
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Theme Tokens ────────────────────── */
+@theme {
+  --color-brand-black: #0a0a0a;
+  --color-brand-charcoal: #141414;
+  --color-brand-charcoal-light: #222222;
+  --color-brand-gold: #c8a45a;
+  --color-brand-gold-light: #dfc27e;
+  --color-brand-gold-dark: #9e7d38;
+  --color-brand-orange: #d4943a;
+  --color-brand-white: #f5f0e8;
+  --color-brand-white-pure: #ffffff;
+  --color-brand-muted: #9c9488;
+
+  --font-family-display: 'Playfair Display', Georgia, serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Global Reset & Base ─────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: #0a0a0a;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: #0a0a0a;
+  color: #f5f0e8;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── Selection ───────────────────────── */
+::selection {
+  background-color: #c8a45a;
+  color: #0a0a0a;
+}
+
+/* ── Scrollbar ───────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9e7d38;
+}
+
+/* ── Reduced Motion ──────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Utility Classes ─────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #9e7d38 0%,
+    #dfc27e 35%,
+    #c8a45a 65%,
+    #dfc27e 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Ambient Gold Glow ───────────────── */
+.gold-glow {
+  box-shadow:
+    0 0 50px rgba(200, 164, 90, 0.09),
+    0 0 100px rgba(200, 164, 90, 0.05),
+    0 0 160px rgba(200, 164, 90, 0.02);
+}
+
+/* ── Button Styles ───────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 34px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.08) 100%
+  ),
+  linear-gradient(
+    135deg,
+    #a8843c 0%,
+    #c8a45a 35%,
+    #dfc27e 65%,
+    #b49046 100%
+  );
+  color: #0c0b09;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #9e7a34;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 16px rgba(200, 164, 90, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.25s ease;
+  position: relative;
+  user-select: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1.5px);
+  filter: brightness(1.05);
+  border-color: #b89244;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(200, 164, 90, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(200, 164, 90, 0.12),
+    inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.08s;
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid #dfc27e;
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 34px;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 22, 22, 0.9) 0%,
+    rgba(14, 14, 14, 0.95) 100%
+  );
+  color: #dfc27e;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(200, 164, 90, 0.38);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(200, 164, 90, 0.12);
+  transition:
+    transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+  position: relative;
+  user-select: none;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1.5px);
+  border-color: rgba(223, 194, 126, 0.7);
+  background: linear-gradient(
+    180deg,
+    rgba(32, 28, 20, 0.95) 0%,
+    rgba(20, 18, 14, 0.98) 100%
+  );
+  color: #ffffff;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(200, 164, 90, 0.16),
+    inset 0 1px 0 rgba(223, 194, 126, 0.25);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition-duration: 0.08s;
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid #dfc27e;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary {
+    min-height: 50px;
+    padding: 0 28px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Services Section Layout & Spacing
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.services-section {
+  position: relative;
+  background-color: #0a0a0a;
+  color: #f5f0e8;
+  padding-top: 110px;
+  padding-bottom: 110px;
+  border-top: 1px solid rgba(200, 164, 90, 0.15);
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .services-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* ── Central Content Wrapper ── */
+.services-wrapper {
+  width: min(100% - 96px, 1440px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1280px) {
+  .services-wrapper {
+    width: min(100% - 72px, 1440px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-wrapper {
+    width: calc(100% - 56px);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-wrapper {
+    width: calc(100% - 40px);
+  }
+}
+
+/* ── Section Header ── */
+.services-header {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .services-header {
+    margin-bottom: 45px;
+  }
+}
+
+.services-eyebrow {
+  font-family: var(--font-family-body);
+  color: #c8a45a;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.services-heading {
+  font-family: var(--font-family-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #f5f0e8;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1024px) {
+  .services-heading {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-heading {
+    font-size: 2.15rem;
+    line-height: 1.1;
+  }
+}
+
+.services-description {
+  font-family: var(--font-family-body);
+  font-size: 0.9375rem;
+  color: #9c9488;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .services-description {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Service Grid ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 32px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+/* ── Service Card ── */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(19, 19, 19, 0.95);
+  border: 1px solid rgba(200, 164, 90, 0.12);
+  border-radius: 10px;
+  padding: 28px;
+  transition: transform 0.25s ease-out, border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  height: 100%;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .service-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-card {
+    padding: 24px 22px;
+  }
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(200, 164, 90, 0.38);
+  box-shadow: 0 14px 32px -4px rgba(0, 0, 0, 0.85), 0 0 20px rgba(200, 164, 90, 0.08);
+}
+
+.service-card.is-selected {
+  border-color: #c8a45a;
+  box-shadow: 0 0 24px rgba(200, 164, 90, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Card Internal Rhythm */
+.service-card-number-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 2px;
+}
+
+.service-card-number {
+  color: rgba(200, 164, 90, 0.45);
+  font-family: monospace, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+.service-card-popular-badge {
+  padding: 2px 8px;
+  font-size: 0.525rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #0a0a0a;
+  background: linear-gradient(135deg, #c8a45a, #dfc27e);
+  border-radius: 3px;
+}
+
+.service-card-title {
+  font-family: var(--font-family-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f5f0e8;
+  line-height: 1.35;
+  margin-bottom: 24px;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.service-card-currency {
+  color: rgba(200, 164, 90, 0.85);
+  font-size: 1.15rem;
+  font-weight: 300;
+}
+
+.service-card-price-amount {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.service-card-includes-label {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(200, 164, 90, 0.75);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.service-card-includes-list {
+  font-size: 0.8125rem;
+  color: #9c9488;
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+.service-card-btn-wrap {
+  margin-top: auto;
+  padding-top: 30px;
+}
+
+.service-card-btn {
+  width: 100%;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #dfc27e;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(200, 164, 90, 0.25);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  text-decoration: none;
+}
+
+.service-card-btn:hover {
+  background: linear-gradient(135deg, #a8843c, #dfc27e);
+  color: #0c0b09;
+  border-color: transparent;
+}
+
+.service-card-btn:active {
+  transform: translateY(1px);
+}
+
+.service-card-btn:focus-visible {
+  outline: 2px solid #dfc27e;
+  outline-offset: 2px;
+}
+
+/* ── Bottom Section CTA ── */
+.services-bottom-cta {
+  margin-top: 100px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(200, 164, 90, 0.1);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .services-bottom-cta {
+    margin-top: 80px;
+    padding-top: 48px;
+  }
+}
+
+.services-cta-heading {
+  font-family: var(--font-family-display);
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #f5f0e8;
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+
+@media (max-width: 640px) {
+  .services-cta-heading {
+    font-size: 1.45rem;
+  }
+}
+
+.services-cta-text {
+  font-family: var(--font-family-body);
+  color: #9c9488;
+  font-size: 0.875rem;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.services-cta-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.services-cta-btn {
+  width: 300px;
+}
+
+@media (max-width: 640px) {
+  .services-cta-btn {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   VIBE CUT — FINAL REFERENCE UI OVERRIDES
+   Menu cards + booking flow are intentionally kept close to the
+   supplied reference: navy/black field, thin gold borders,
+   editorial serif titles, image-led composition, compact rhythm.
+   ═══════════════════════════════════════════════════════════════ */
+
+.services-section {
+  background: #000 !important;
+  padding-top: 54px !important;
+  padding-bottom: 100px !important;
+}
+.services-wrapper { max-width: 1380px !important; width: min(100% - 36px, 1380px) !important; }
+.services-header { margin-bottom: 34px !important; }
+.services-eyebrow { font-size: 10px !important; letter-spacing: .42em !important; }
+.services-heading { font-size: clamp(30px, 4vw, 54px) !important; margin-bottom: 12px !important; }
+.services-description { font-size: 13px !important; }
+.services-grid { grid-template-columns: repeat(4, minmax(0,1fr)) !important; gap: 14px !important; }
+
+.vc-menu-card {
+  position: relative;
+  min-height: 526px;
+  overflow: hidden;
+  border: 1px solid rgba(200,164,90,.72);
+  border-radius: 18px;
+  background: #031122;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.025), 0 10px 30px rgba(0,0,0,.35);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.vc-menu-card:hover { transform: translateY(-4px); border-color: #dfc27e; box-shadow: 0 18px 45px rgba(0,0,0,.55), 0 0 22px rgba(200,164,90,.08); }
+.vc-menu-card-bg { position:absolute; inset:0; z-index:-4; background: radial-gradient(circle at 15% 0%, rgba(255,255,255,.045), transparent 35%), #031122; }
+.vc-menu-card-image { position:absolute; z-index:-2; right:-10%; bottom:-1%; width:78%; height:70%; object-fit:contain; object-position:center bottom; mix-blend-mode:screen; opacity:.9; filter:saturate(.9) contrast(1.03); }
+.vc-menu-card:nth-child(2) .vc-menu-card-image { width:83%; right:-13%; }
+.vc-menu-card:nth-child(3) .vc-menu-card-image { width:84%; right:-12%; bottom:-3%; }
+.vc-menu-card:nth-child(4) .vc-menu-card-image { width:83%; right:-13%; }
+.vc-menu-card:nth-child(5) .vc-menu-card-image { width:83%; right:-8%; bottom:-2%; }
+.vc-menu-card:nth-child(6) .vc-menu-card-image { width:84%; right:-10%; bottom:-2%; }
+.vc-menu-card:nth-child(7) .vc-menu-card-image { width:86%; right:-12%; bottom:-2%; }
+.vc-menu-card:nth-child(8) .vc-menu-card-image { width:88%; right:-10%; bottom:-1%; }
+.vc-menu-card-vignette { position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, rgba(3,17,34,.02) 0%, rgba(3,17,34,.08) 35%, rgba(3,17,34,.7) 67%, rgba(3,17,34,.98) 100%); pointer-events:none; }
+.vc-menu-card-content { position:relative; height:100%; min-height:526px; padding:18px 20px 20px; display:flex; flex-direction:column; }
+.vc-menu-top { display:flex; align-items:flex-start; gap:10px; position:relative; min-height:48px; }
+.vc-menu-number { width:36px; height:36px; border:1px solid rgba(223,194,126,.8); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#dfc27e; font-size:15px; font-family:monospace; flex:none; }
+.vc-menu-brand { flex:1; text-align:center; font-family:var(--font-family-display); font-size:17px; line-height:1; letter-spacing:.18em; color:#f4efe7; padding-top:5px; }
+.vc-menu-brand span { display:block; font-family:var(--font-family-body); font-size:7px; letter-spacing:.32em; margin-top:6px; color:#d8d0c2; }
+.vc-menu-badge { position:absolute; top:-18px; right:-20px; padding:10px 14px; background:linear-gradient(135deg,#b78b35,#e2bd65); color:#080808; font-size:9px; letter-spacing:.1em; font-weight:800; border-bottom-left-radius:8px; }
+.vc-menu-title-wrap { margin-top:25px; position:relative; z-index:2; }
+.vc-menu-title-wrap h3 { font-family:var(--font-family-display); font-size:31px; line-height:1.03; font-weight:500; letter-spacing:.01em; color:#f6f2eb; max-width:95%; }
+.vc-menu-arrow { display:block; width:108px; height:1px; background:#d8ad52; margin-top:18px; position:relative; }
+.vc-menu-arrow::after { content:""; position:absolute; right:0; top:-2px; border-left:5px solid #d8ad52; border-top:2px solid transparent; border-bottom:2px solid transparent; }
+.vc-menu-includes { list-style:none; padding:0; margin:20px 0 0; display:grid; gap:11px; position:relative; z-index:2; }
+.vc-menu-includes li { display:flex; align-items:center; gap:10px; color:#eee9e0; font-size:12px; line-height:1.1; }
+.vc-menu-includes li span { color:#d8a844; font-size:14px; width:18px; text-align:center; }
+.vc-menu-bottom { margin-top:auto; position:relative; z-index:2; }
+.vc-menu-price { font-family:var(--font-family-display); color:#dfb84f; font-size:29px; letter-spacing:.01em; margin-bottom:19px; }
+.vc-menu-price span { font-size:20px; margin-right:2px; }
+.vc-menu-book { width:100%; height:44px; border:0; border-radius:6px; background:linear-gradient(180deg,#e5be68,#c9993c); color:#090807; font-weight:800; font-size:11px; letter-spacing:.08em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+.vc-menu-book span { margin-left:6px; font-size:15px; }
+.vc-menu-book:hover { filter:brightness(1.08); }
+
+/* Booking modal reference proportions */
+.vc-book-service-selector { width:100%; }
+.vc-book-section-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.vc-book-section-head > span { color:#dfc27e; font-size:11px; font-weight:800; letter-spacing:.22em; }
+.vc-book-section-head button { background:none; border:0; color:#dfc27e; font-size:12px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.vc-selected-service-card { height:258px; display:grid; grid-template-columns:174px 1fr; border:1px solid rgba(200,164,90,.55); border-radius:11px; overflow:hidden; background:#031122; }
+.vc-selected-service-image-wrap { background:#071424; overflow:hidden; }
+.vc-selected-service-image { width:100%; height:100%; object-fit:cover; object-position:center; }
+.vc-selected-service-info { padding:25px 24px; position:relative; display:flex; flex-direction:column; }
+.vc-selected-number { color:#dcae4c; font-family:monospace; font-size:12px; }
+.vc-selected-service-info h4 { font-family:var(--font-family-display); color:#f5f0e8; font-size:27px; line-height:1.05; font-weight:500; margin:9px 0 10px; }
+.vc-selected-service-info p { color:#a8a39b; font-size:11px; line-height:1.5; max-width:500px; }
+.vc-duration { margin-top:18px; color:#dcae4c; font-size:11px; display:flex; gap:6px; }
+.vc-selected-service-info strong { margin-top:auto; color:#e1b54d; font-family:var(--font-family-display); font-size:28px; font-weight:500; }
+.vc-change-service-panel {
+  width:100%;
+  height:366px;
+  border:1px solid rgba(200,164,90,.55);
+  border-radius:9px;
+  overflow:hidden;
+  background:#031122;
+  display:flex;
+  flex-direction:column;
+}
+
+.vc-change-service-titlebar {
+  height:39px;
+  min-height:39px;
+  display:grid;
+  grid-template-columns:40px 1fr 40px;
+  align-items:center;
+  border-bottom:1px solid rgba(200,164,90,.28);
+  color:#eee9e0;
+  text-align:center;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+
+.vc-change-service-titlebar button {
+  width:100%;
+  height:100%;
+  border:0;
+  background:transparent;
+  color:#dfc27e;
+  cursor:pointer;
+  font-size:16px;
+  line-height:1;
+}
+
+.vc-change-service-titlebar .vc-change-back {
+  font-size:17px;
+  text-align:left;
+  padding-left:10px;
+}
+
+.vc-change-service-titlebar .vc-change-close {
+  font-size:18px;
+  color:#c9c2b7;
+}
+
+.vc-change-service-content {
+  min-height:0;
+  flex:1;
+  display:grid;
+  grid-template-columns:1.1fr 1.25fr;
+  gap:7px;
+  padding:7px;
+}
+
+.vc-service-list {
+  min-width:0;
+  min-height:0;
+  border:1px solid rgba(200,164,90,.35);
+  border-radius:6px;
+  overflow:hidden;
+  background:#031122;
+}
+
+.vc-service-list button {
+  width:100%;
+  height:30px;
+  padding:0 7px;
+  display:grid;
+  grid-template-columns:25px minmax(0,1fr) auto 14px;
+  align-items:center;
+  gap:4px;
+  border:0;
+  border-bottom:1px solid rgba(200,164,90,.14);
+  background:transparent;
+  color:#ddd5c8;
+  font-size:8px;
+  text-align:left;
+  cursor:pointer;
+}
+
+.vc-service-list button:last-child {
+  border-bottom:0;
+}
+
+.vc-service-list button.active {
+  background:linear-gradient(90deg,rgba(200,164,90,.17),rgba(200,164,90,.04));
+  box-shadow:inset 2px 0 #d9ad4e;
+  color:#fff;
+}
+
+.vc-service-list-name {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.vc-check {
+  color:#dfc27e;
+  font-size:12px;
+  text-align:center;
+}
+
+.vc-change-preview-wrap {
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.vc-change-preview {
+  min-height:0;
+  flex:1;
+  border:1px solid rgba(200,164,90,.35);
+  border-radius:6px;
+  overflow:hidden;
+  background:#031122;
+  display:grid;
+  grid-template-columns:52% 48%;
+}
+
+.vc-change-preview img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+.vc-change-preview > div {
+  min-width:0;
+  padding:12px 10px;
+  display:flex;
+  flex-direction:column;
+}
+
+.vc-change-preview span {
+  color:#dcae4c;
+  font-family:monospace;
+  font-size:9px;
+}
+
+.vc-change-preview h4 {
+  font-family:var(--font-family-display);
+  color:#f5f0e8;
+  font-size:18px;
+  line-height:1.02;
+  font-weight:500;
+  margin:8px 0 8px;
+}
+
+.vc-change-preview p {
+  color:#aaa39a;
+  font-size:8px;
+  line-height:1.45;
+}
+
+.vc-change-duration {
+  margin-top:10px;
+  color:#dcae4c;
+  font-size:8px;
+  display:flex;
+  gap:4px;
+}
+
+.vc-change-preview strong {
+  margin-top:auto;
+  color:#e1b54d;
+  font-family:var(--font-family-display);
+  font-size:21px;
+  font-weight:500;
+}
+
+.vc-select-service-button {
+  width:100%;
+  height:34px;
+  flex:0 0 34px;
+  border:0;
+  border-radius:5px;
+  background:linear-gradient(180deg,#e5be68,#c9993c);
+  color:#090807;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.05em;
+  cursor:pointer;
+}
+
+.vc-select-service-button:hover {
+  filter:brightness(1.06);
+}
+
+@media (max-width: 1200px) {
+  .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+}
+@media (max-width: 700px) {
+  .services-section { padding-top:36px !important; }
+  .services-wrapper { width:min(100% - 24px, 520px) !important; }
+  .services-grid { grid-template-columns:1fr !important; gap:16px !important; }
+  .vc-menu-card, .vc-menu-card-content { min-height:570px; }
+  .vc-menu-title-wrap h3 { font-size:34px; }
+  .vc-selected-service-card { grid-template-columns:120px 1fr; height:225px; }
+  .vc-selected-service-info { padding:18px 16px; }
+  .vc-selected-service-info h4 { font-size:21px; }
+}
+
+.vc-booking-panel .border-brand-gold\/15 { border-color: rgba(200,164,90,.22) !important; }
+.vc-booking-panel > div:first-child { background:#031122 !important; }
+.vc-booking-panel h3 { font-size:clamp(25px,3vw,36px) !important; }
+.vc-booking-panel .vc-booking-body { overflow-y:auto; scrollbar-width:thin; scrollbar-color:#3b3529 transparent; }
+.vc-booking-panel .vc-booking-body > div { min-height:0; }
+.vc-booking-panel .btn-primary { min-height:48px; border-radius:6px; }
+.vc-booking-panel .btn-secondary { min-height:48px; border-radius:6px; background:#071424; border-color:rgba(200,164,90,.35); }
+.vc-booking-panel .vc-booking-body .space-y-6 { gap:16px; }
+.vc-booking-panel .vc-booking-body .space-y-7 { gap:14px; }
+.vc-booking-panel .vc-booking-body .pt-6 { padding-top:14px; }
+.vc-booking-panel .vc-booking-body .pb-8 { padding-bottom:10px; }
+.vc-booking-panel .vc-booking-body .mt-8 { margin-top:12px; }
+.vc-booking-panel .vc-booking-body .grid-cols-1.lg\:grid-cols-\[1\.2fr_0\.8fr\] { grid-template-columns:1fr 1fr; gap:10px; }
+.vc-booking-panel .vc-booking-body [class*="bg-\[#161616\]"] { background:#041325 !important; }
+.vc-booking-panel .vc-booking-body [class*="border-brand-gold\/25"] { border-color:rgba(200,164,90,.42) !important; }
+.vc-booking-panel .vc-booking-body [class*="rounded-\[14px\]"] { border-radius:9px !important; }
+.vc-booking-panel .vc-booking-body .w-\[130px\] { width:94px !important; min-width:94px !important; height:82px !important; padding:9px !important; border-radius:7px !important; }
+.vc-booking-panel .vc-booking-body .w-\[130px\] span:nth-child(2) { font-size:23px !important; }
+.vc-booking-panel .vc-booking-body .grid-cols-2.sm\:grid-cols-4.md\:grid-cols-5 { grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; }
+.vc-booking-panel .vc-booking-body .grid-cols-2.sm\:grid-cols-4.md\:grid-cols-5 button { height:38px; padding:4px 3px; border-radius:5px; font-size:10px; }
+.vc-booking-panel .vc-booking-body textarea, .vc-booking-panel .vc-booking-body input { background:#020b16 !important; border-color:rgba(200,164,90,.3) !important; }
+.vc-booking-panel .vc-booking-body .grid-cols-1.lg\:grid-cols-\[1\.2fr_0\.8fr\] > * { min-height:0; }
+
+@media (max-width: 760px) {
+  .services-grid { grid-template-columns:1fr !important; }
+  .vc-booking-panel { width:calc(100vw - 18px) !important; height:calc(100vh - 18px) !important; border-radius:14px !important; }
+  .vc-booking-panel .vc-booking-body .grid-cols-1.lg\:grid-cols-\[1\.2fr_0\.8fr\] { grid-template-columns:1fr; }
+  .vc-booking-panel .vc-booking-body .grid-cols-2.sm\:grid-cols-4.md\:grid-cols-5 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+
+/* =========================================================
+   VIBE CUT BOOKING — COMPACT REFERENCE UI
+   Matches the supplied portrait reference: narrow luxury
+   panel, compact typography, two-part selected service card,
+   four small progress steps and bottom CTA.
+   ========================================================= */
+
+.vc-booking-panel {
+  width: min(460px, calc(100vw - 16px)) !important;
+  max-width: 460px !important;
+  height: min(780px, calc(100vh - 16px)) !important;
+  max-height: calc(100vh - 16px) !important;
+  border-radius: 9px !important;
+  border-color: rgba(200,164,90,.75) !important;
+  background: #020d19 !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.95), 0 0 28px rgba(200,164,90,.06) !important;
+}
+
+.vc-booking-header {
+  flex-shrink: 0;
+  padding: 10px 12px 8px !important;
+  border-bottom: 1px solid rgba(200,164,90,.22);
+  background: #020d19;
+}
+
+.vc-booking-topline {
+  height: 31px;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.vc-booking-id {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(200,164,90,.7);
+  border-radius: 3px;
+  color: #e0b44d;
+  font: 500 11px/1 monospace;
+}
+
+.vc-booking-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: #f5f0e8;
+  font-family: var(--font-family-display);
+  letter-spacing: .16em;
+  font-size: 12px;
+}
+
+.vc-booking-brand small {
+  margin-top: 3px;
+  font-family: var(--font-family-body);
+  color: #aaa39a;
+  font-size: 4.5px;
+  letter-spacing: .25em;
+}
+
+.vc-booking-step-badge {
+  padding: 5px 7px;
+  border: 1px solid rgba(200,164,90,.8);
+  border-radius: 3px;
+  background: #dcae4c;
+  color: #090806;
+  font-size: 6px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.vc-booking-title-row {
+  position: relative;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.vc-booking-title {
+  margin: 0 !important;
+  color: #f5f0e8 !important;
+  font-family: var(--font-family-display) !important;
+  font-size: 27px !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+  letter-spacing: -.025em !important;
+}
+
+.vc-booking-subtitle {
+  margin: 6px 0 0 !important;
+  color: #9c9488 !important;
+  font-family: Georgia, serif !important;
+  font-size: 9px !important;
+  line-height: 1.2 !important;
+}
+
+.vc-booking-close {
+  position: absolute;
+  top: -33px;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(200,164,90,.38);
+  border-radius: 50%;
+  background: #11191f;
+  color: #9c9488;
+  font-size: 15px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative {
+  padding: 8px 20px 8px !important;
+}
+
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 24px !important;
+  left: 15% !important;
+  right: 15% !important;
+  background: rgba(200,164,90,.20) !important;
+}
+
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative > .grid {
+  gap: 0 !important;
+}
+
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 27px !important;
+  height: 27px !important;
+  min-width: 27px !important;
+  font-size: 8px !important;
+  box-shadow: none !important;
+  ring-width: 0 !important;
+}
+
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 4px !important;
+}
+
+.vc-booking-panel > .flex-shrink-0 > .w-full.relative span {
+  font-size: 6px !important;
+  letter-spacing: .14em !important;
+}
+
+.vc-booking-panel .vc-booking-body {
+  padding: 0 12px 10px !important;
+  overflow-y: auto !important;
+}
+
+.vc-booking-panel .vc-booking-body > div:first-child {
+  min-height: 0 !important;
+}
+
+.vc-booking-panel .vc-booking-body .space-y-6 {
+  gap: 12px !important;
+}
+
+.vc-booking-panel .vc-booking-body .mt-8 {
+  margin-top: 14px !important;
+}
+
+.vc-booking-panel .vc-booking-body .pt-6 {
+  padding-top: 8px !important;
+}
+
+.vc-booking-panel .vc-booking-body > div.flex.flex-col.flex-1.justify-between {
+  justify-content: flex-start !important;
+}
+
+.vc-booking-panel .vc-booking-body button.inline-flex {
+  font-size: 8px !important;
+  letter-spacing: .13em !important;
+  gap: 5px !important;
+}
+
+.vc-booking-panel .vc-booking-body button.inline-flex svg {
+  width: 11px !important;
+  height: 11px !important;
+}
+
+.vc-book-section-head {
+  margin-bottom: 7px !important;
+}
+
+.vc-book-section-head > span {
+  font-size: 8px !important;
+  letter-spacing: .18em !important;
+}
+
+.vc-book-section-head button {
+  font-size: 7px !important;
+}
+
+.vc-selected-service-card {
+  height: 320px !important;
+  grid-template-columns: 52% 48% !important;
+  border-radius: 5px !important;
+  border-color: rgba(200,164,90,.62) !important;
+  background: #020d19 !important;
+}
+
+.vc-selected-service-image-wrap {
+  background: #071424 !important;
+}
+
+.vc-selected-service-image {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.vc-selected-service-info {
+  padding: 15px 12px !important;
+  min-width: 0 !important;
+}
+
+.vc-selected-number {
+  display: inline-grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgba(200,164,90,.7);
+  border-radius: 3px;
+  font-size: 9px !important;
+  flex-shrink: 0;
+}
+
+.vc-selected-service-info h4 {
+  font-size: 22px !important;
+  line-height: 1.03 !important;
+  margin: 9px 0 9px !important;
+  word-break: normal;
+}
+
+.vc-selected-service-info p {
+  font-size: 7px !important;
+  line-height: 1.55 !important;
+  color: #b2aca2 !important;
+}
+
+.vc-duration {
+  margin-top: 14px !important;
+  font-size: 8px !important;
+  gap: 4px !important;
+}
+
+.vc-selected-service-info strong {
+  font-size: 24px !important;
+  line-height: 1 !important;
+  margin-top: auto !important;
+}
+
+.vc-booking-panel .vc-booking-body .btn-primary {
+  min-height: 47px !important;
+  height: 47px !important;
+  width: 100% !important;
+  border-radius: 4px !important;
+  font-size: 8px !important;
+  letter-spacing: .14em !important;
+  padding: 0 14px !important;
+}
+
+.vc-booking-panel .vc-booking-body .btn-secondary {
+  min-height: 43px !important;
+}
+
+@media (max-width: 520px) {
+  .vc-booking-panel {
+    width: calc(100vw - 16px) !important;
+    height: min(780px, calc(100vh - 16px)) !important;
+  }
+
+  .vc-booking-title {
+    font-size: clamp(20px, 7vw, 27px) !important;
+  }
+
+  .vc-selected-service-card {
+    height: min(320px, 45vh) !important;
+  }
+
+  .vc-selected-service-info h4 {
+    font-size: clamp(17px, 5.6vw, 22px) !important;
+  }
+}
+
+@media (max-height: 650px) {
+  .vc-booking-panel {
+    height: calc(100vh - 10px) !important;
+  }
+  .vc-selected-service-card {
+    height: 260px !important;
+  }
+  .vc-booking-header {
+    padding-top: 7px !important;
+    padding-bottom: 5px !important;
+  }
+}
+
+/* =========================================================
+   VIBE CUT — STEP 2 ONLY
+   Exact compact portrait treatment from the supplied
+   TIME reference. No sizing/layout changes are applied
+   to Steps 1, 3 or 4.
+   ========================================================= */
+.vc-booking-panel--time {
+  width: min(460px, calc(100vw - 16px)) !important;
+  max-width: 460px !important;
+  height: auto !important;
+  max-height: calc(100vh - 16px) !important;
+  border-radius: 7px !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--time .vc-booking-header {
+  padding: 7px 9px 6px !important;
+}
+
+.vc-booking-panel--time .vc-booking-topline {
+  height: 27px;
+  grid-template-columns: 28px 1fr auto;
+  gap: 6px;
+}
+
+.vc-booking-panel--time .vc-booking-id {
+  width: 27px;
+  height: 27px;
+  font-size: 10px;
+}
+
+.vc-booking-panel--time .vc-booking-brand {
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.vc-booking-panel--time .vc-booking-brand small {
+  margin-top: 2px;
+  font-size: 4px;
+}
+
+.vc-booking-panel--time .vc-booking-step-badge {
+  padding: 5px 7px;
+  font-size: 6px;
+}
+
+.vc-booking-panel--time .vc-booking-title-row {
+  padding-top: 7px;
+}
+
+.vc-booking-panel--time .vc-booking-title {
+  font-size: 17px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.015em !important;
+}
+
+.vc-booking-panel--time .vc-booking-subtitle {
+  margin-top: 4px !important;
+  font-size: 6.5px !important;
+}
+
+.vc-booking-panel--time .vc-booking-close {
+  display: none !important;
+}
+
+/* Tiny four-step progress exactly like the reference. */
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative {
+  padding: 7px 16px 6px !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 22px !important;
+  left: 14% !important;
+  right: 14% !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 21px !important;
+  height: 21px !important;
+  min-width: 21px !important;
+  font-size: 7px !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 3px !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative span {
+  font-size: 5px !important;
+  letter-spacing: .08em !important;
+}
+
+/* Step 2 body — compact to the actual reference content height.
+   Only Step 2 is allowed to shrink to its content; Steps 1, 3 and 4
+   retain their existing panel dimensions. */
+.vc-booking-panel--time .vc-booking-body {
+  padding: 0 12px 8px !important;
+  overflow: hidden !important;
+  flex: 0 0 auto !important;
+}
+
+.vc-booking-panel--time .vc-time-step {
+  gap: 0 !important;
+  min-height: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child {
+  gap: 8px !important;
+  min-height: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step button.inline-flex {
+  font-size: 6.5px !important;
+  letter-spacing: .09em !important;
+  gap: 3px !important;
+}
+
+.vc-booking-panel--time .vc-time-step button.inline-flex svg {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.vc-booking-panel--time .vc-time-section-label {
+  margin-bottom: 5px !important;
+}
+
+.vc-booking-panel--time .vc-time-section-label label {
+  font-size: 7px !important;
+  letter-spacing: .13em !important;
+}
+
+.vc-booking-panel--time .vc-time-section-label span {
+  display: none !important;
+}
+
+/* Seven compact dates with a right arrow. */
+.vc-booking-panel--time .vc-time-date-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.vc-booking-panel--time .vc-time-date-rail {
+  gap: 4px !important;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 10px 2px 0 !important;
+  scrollbar-width: none;
+}
+
+.vc-booking-panel--time .vc-time-date-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 54px !important;
+  padding: 4px 2px !important;
+  border-radius: 4px !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button span:first-child {
+  font-size: 5px !important;
+  letter-spacing: .04em !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button span:nth-child(2) {
+  font-size: 14px !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button span:nth-child(3) {
+  font-size: 5px !important;
+  letter-spacing: .04em !important;
+}
+
+.vc-booking-panel--time .vc-time-date-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: -1px;
+  width: 13px;
+  height: 54px;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid rgba(200,164,90,.16);
+  background: linear-gradient(90deg, rgba(2,13,25,.35), #020d19 65%);
+  color: #dcae4c;
+  font: 18px/1 Georgia, serif;
+  cursor: pointer;
+}
+
+/* Time label and compact 5-column slot grid. */
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 {
+  padding-top: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 > div {
+  gap: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 label {
+  font-size: 7px !important;
+  letter-spacing: .13em !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 4px !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid button {
+  height: 23px !important;
+  min-height: 23px !important;
+  padding: 2px 1px !important;
+  border-radius: 3px !important;
+  font-size: 6px !important;
+  letter-spacing: .02em !important;
+  white-space: nowrap;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Bottom navigation */
+.vc-booking-panel--time .vc-time-step > div:last-child {
+  margin-top: 8px !important;
+  padding-top: 7px !important;
+  border-top-color: rgba(200,164,90,.22) !important;
+  flex-shrink: 0;
+  display: grid !important;
+  grid-template-columns: 70px 1fr !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:last-child .btn-secondary,
+.vc-booking-panel--time .vc-time-step > div:last-child .btn-primary {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 29px !important;
+  height: 29px !important;
+  padding: 0 6px !important;
+  border-radius: 4px !important;
+  font-size: 6px !important;
+  letter-spacing: .09em !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:last-child .btn-secondary {
+  grid-column: 1;
+}
+
+.vc-booking-panel--time .vc-time-step > div:last-child .btn-primary {
+  grid-column: 2;
+}
+
+@media (max-width: 320px) {
+  .vc-booking-panel--time {
+    width: calc(100vw - 16px) !important;
+    height: auto !important;
+    max-height: calc(100vh - 16px) !important;
+  }
+
+  .vc-booking-panel--time .vc-booking-body {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+  }
+
+  .vc-booking-panel--time .vc-time-date-rail > button {
+    width: 30px !important;
+    min-width: 30px !important;
+  }
+}
+
+/* =========================================================
+   VIBE CUT — STEP 3 ONLY
+   Exact compact DETAILS reference treatment.
+   This modifier is scoped exclusively to Step 3.
+   ========================================================= */
+.vc-booking-panel--details {
+  width: min(460px, calc(100vw - 16px)) !important;
+  max-width: 460px !important;
+  height: min(780px, calc(100vh - 16px)) !important;
+  max-height: calc(100vh - 16px) !important;
+  border-radius: 7px !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--details .vc-booking-header {
+  padding: 7px 9px 6px !important;
+}
+
+.vc-booking-panel--details .vc-booking-topline {
+  height: 27px;
+  grid-template-columns: 28px 1fr auto;
+  gap: 6px;
+}
+
+.vc-booking-panel--details .vc-booking-id {
+  width: 27px;
+  height: 27px;
+  font-size: 10px;
+}
+
+.vc-booking-panel--details .vc-booking-brand {
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.vc-booking-panel--details .vc-booking-brand small {
+  margin-top: 2px;
+  font-size: 4px;
+}
+
+.vc-booking-panel--details .vc-booking-step-badge {
+  padding: 5px 7px;
+  font-size: 6px;
+}
+
+.vc-booking-panel--details .vc-booking-title-row {
+  padding-top: 7px;
+}
+
+.vc-booking-panel--details .vc-booking-title {
+  font-size: 17px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.015em !important;
+}
+
+.vc-booking-panel--details .vc-booking-subtitle {
+  margin-top: 4px !important;
+  font-size: 6.5px !important;
+}
+
+.vc-booking-panel--details .vc-booking-close {
+  display: none !important;
+}
+
+/* Tiny progress indicator */
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative {
+  padding: 7px 16px 6px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 22px !important;
+  left: 14% !important;
+  right: 14% !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 21px !important;
+  height: 21px !important;
+  min-width: 21px !important;
+  font-size: 7px !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 3px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative span {
+  font-size: 5px !important;
+  letter-spacing: .08em !important;
+}
+
+/* Body */
+.vc-booking-panel--details .vc-booking-body {
+  padding: 0 12px 8px !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--details .vc-details-step {
+  gap: 0 !important;
+  min-height: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:first-child {
+  gap: 6px !important;
+  min-height: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:first-child > div:first-child {
+  margin-bottom: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step button.inline-flex {
+  font-size: 6.5px !important;
+  letter-spacing: .09em !important;
+  gap: 3px !important;
+}
+
+.vc-booking-panel--details .vc-details-step button.inline-flex svg {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/* Two compact cards */
+.vc-booking-panel--details .vc-details-step > div:first-child > .grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 5px !important;
+  align-items: stretch !important;
+}
+
+.vc-booking-panel--details .vc-details-form,
+.vc-booking-panel--details .vc-details-summary {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.vc-details-form {
+  padding: 0 !important;
+}
+
+.vc-details-form-head {
+  margin-bottom: 5px !important;
+}
+
+.vc-details-form-head h4,
+.vc-details-summary-title {
+  font-size: 7px !important;
+  line-height: 1 !important;
+  letter-spacing: .13em !important;
+  color: #dfb85e !important;
+}
+
+.vc-details-form-head p {
+  display: none !important;
+}
+
+.vc-details-form > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px !important;
+}
+
+.vc-details-form > div:last-child > div {
+  min-width: 0;
+}
+
+.vc-details-form label {
+  display: block;
+  font-size: 5.5px !important;
+  line-height: 1.15 !important;
+  letter-spacing: .03em !important;
+  margin-bottom: 3px !important;
+  white-space: nowrap;
+}
+
+.vc-details-form .vc-details-input {
+  width: 100% !important;
+  height: 23px !important;
+  min-height: 23px !important;
+  padding: 0 6px !important;
+  border-radius: 3px !important;
+  font-size: 6px !important;
+  line-height: 1 !important;
+  background: #020b16 !important;
+  border-color: rgba(200,164,90,.30) !important;
+}
+
+.vc-details-form .vc-details-textarea {
+  height: 39px !important;
+  min-height: 39px !important;
+  padding: 5px 6px !important;
+  line-height: 1.2 !important;
+}
+
+.vc-details-form .mt-1\.5 {
+  margin-top: 3px !important;
+  font-size: 5px !important;
+}
+
+/* Summary card */
+.vc-details-summary {
+  padding: 0 !important;
+  border: 1px solid rgba(200,164,90,.40) !important;
+  border-radius: 5px !important;
+  background: #020d19 !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vc-details-summary-title {
+  padding: 7px 6px 5px !important;
+  border-bottom: 1px solid rgba(200,164,90,.24) !important;
+  margin: 0 !important;
+}
+
+.vc-details-summary-service {
+  display: grid;
+  grid-template-columns: 49% 51%;
+  height: 75px;
+  border-bottom: 1px solid rgba(200,164,90,.16);
+}
+
+.vc-details-summary-image {
+  overflow: hidden;
+  background: #071424;
+}
+
+.vc-details-summary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.vc-details-summary-service-copy {
+  padding: 7px 5px;
+  min-width: 0;
+}
+
+.vc-details-summary-number {
+  display: inline-grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(200,164,90,.55);
+  border-radius: 2px;
+  color: #dfb85e;
+  font: 6px/1 monospace;
+}
+
+.vc-details-summary-service-copy h5 {
+  margin: 4px 0 3px;
+  color: #f5f0e8;
+  font-family: var(--font-family-display);
+  font-size: 12px;
+  line-height: 1.02;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.vc-details-summary-service-copy p {
+  color: #aaa39a;
+  font-size: 4.8px;
+  line-height: 1.35;
+  max-height: 19px;
+  overflow: hidden;
+}
+
+.vc-details-summary-meta {
+  padding: 7px 6px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vc-details-summary-meta > div {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  gap: 4px;
+  align-items: center;
+}
+
+.vc-summary-icon {
+  color: #dcae4c;
+  font-size: 9px;
+  line-height: 1;
+  text-align: center;
+}
+
+.vc-details-summary-meta small {
+  display: block;
+  color: #a9a196;
+  font-size: 5px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.vc-details-summary-meta strong {
+  display: block;
+  color: #f5f0e8;
+  font-size: 6.5px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.vc-details-summary-total {
+  margin-top: auto;
+  padding: 6px;
+  border-top: 1px solid rgba(200,164,90,.20);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vc-details-summary-total span {
+  color: #dfd5c5;
+  font-size: 7px;
+}
+
+.vc-details-summary-total strong {
+  color: #e1b54d;
+  font-family: var(--font-family-display);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Bottom confirm bar — one full-width button */
+.vc-booking-panel--details .vc-details-step > div:last-child {
+  margin-top: 8px !important;
+  padding-top: 7px !important;
+  border-top-color: rgba(200,164,90,.22) !important;
+  display: block !important;
+  flex-shrink: 0;
+}
+
+.vc-booking-panel--details .vc-details-step > div:last-child .btn-secondary {
+  display: none !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:last-child .btn-primary {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 29px !important;
+  height: 29px !important;
+  padding: 0 8px !important;
+  border-radius: 4px !important;
+  font-size: 6px !important;
+  letter-spacing: .09em !important;
+}
+
+@media (max-width: 320px) {
+  .vc-booking-panel--details {
+    width: calc(100vw - 16px) !important;
+    height: min(780px, calc(100vh - 16px)) !important;
+  }
+
+  .vc-booking-panel--details .vc-booking-body {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+  }
+}
+
+
+/* =========================================================
+   VIBE CUT — STEP 4 ONLY
+   Compact CONFIRM reference treatment.
+   This modifier is applied only while step === "confirmed".
+   Steps 1–3 retain their existing layouts.
+   ========================================================= */
+.vc-booking-panel--confirmed {
+  width: min(460px, calc(100vw - 16px)) !important;
+  max-width: 460px !important;
+  height: min(780px, calc(100vh - 16px)) !important;
+  max-height: calc(100vh - 16px) !important;
+  border-radius: 7px !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-header {
+  padding: 7px 9px 6px !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-topline {
+  height: 27px;
+  grid-template-columns: 28px 1fr auto;
+  gap: 6px;
+}
+
+.vc-booking-panel--confirmed .vc-booking-id {
+  width: 27px;
+  height: 27px;
+  font-size: 10px;
+}
+
+.vc-booking-panel--confirmed .vc-booking-brand {
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.vc-booking-panel--confirmed .vc-booking-brand small {
+  margin-top: 2px;
+  font-size: 4px;
+}
+
+.vc-booking-panel--confirmed .vc-booking-step-badge {
+  padding: 5px 7px;
+  font-size: 6px;
+}
+
+.vc-booking-panel--confirmed .vc-booking-title-row {
+  padding-top: 7px;
+}
+
+.vc-booking-panel--confirmed .vc-booking-title {
+  font-size: 17px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.015em !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-subtitle {
+  margin-top: 4px !important;
+  font-size: 6.5px !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-close {
+  display: none !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative {
+  padding: 7px 16px 6px !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 22px !important;
+  left: 14% !important;
+  right: 14% !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 21px !important;
+  height: 21px !important;
+  min-width: 21px !important;
+  font-size: 7px !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 3px !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative span {
+  font-size: 5px !important;
+  letter-spacing: .08em !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-body {
+  padding: 0 9px 7px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-step {
+  min-height: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-card {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 8px 6px 5px !important;
+  border: 1px solid rgba(200,164,90,.40) !important;
+  border-radius: 5px !important;
+  background: #020d19 !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-check {
+  width: 30px !important;
+  height: 30px !important;
+  margin: 0 auto 4px !important;
+  border: 1px solid rgba(223,194,126,.85) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(223,194,126,.06) !important;
+  box-shadow: none !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-check svg {
+  width: 17px;
+  height: 17px;
+  stroke: #dfc27e;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-title {
+  margin: 0 !important;
+  color: #f5f0e8 !important;
+  font-family: var(--font-family-display) !important;
+  font-size: 10px !important;
+  line-height: 1.05 !important;
+  font-weight: 500 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-title span {
+  color: #d9ae4f !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-copy {
+  margin: 3px 0 5px !important;
+  color: #a9a196 !important;
+  font-size: 5.2px !important;
+  line-height: 1.35 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-reference {
+  min-height: 32px !important;
+  padding: 4px 6px !important;
+  border: 1px solid rgba(200,164,90,.25) !important;
+  border-radius: 3px !important;
+  background: rgba(3,17,34,.85) !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: 4px !important;
+  text-align: left !important;
+  margin-bottom: 4px !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-reference span {
+  color: #b2a998 !important;
+  font-size: 4.7px !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-reference strong {
+  color: #dfb85e !important;
+  font: 700 9px/1 monospace !important;
+  letter-spacing: .06em !important;
+  text-align: center !important;
+}
+
+.vc-booking-panel--confirmed .vc-copy-reference {
+  border: 0 !important;
+  background: transparent !important;
+  color: #dcae4c !important;
+  padding: 0 !important;
+  font-size: 8px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details {
+  border: 1px solid rgba(200,164,90,.20) !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+  text-align: left !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details > div {
+  min-height: 18px !important;
+  padding: 2px 5px !important;
+  display: grid !important;
+  grid-template-columns: 12px 56px 1fr !important;
+  gap: 3px !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(200,164,90,.10) !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details > div:last-child {
+  border-bottom: 0 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-detail-icon {
+  color: #dcae4c !important;
+  font-size: 7px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-detail-label {
+  color: #b2a998 !important;
+  font-size: 5px !important;
+  line-height: 1 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details strong {
+  color: #f0ebe2 !important;
+  font-size: 5.8px !important;
+  line-height: 1.1 !important;
+  font-weight: 500 !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details > div:last-child strong {
+  color: #dfb85e !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-whatsapp {
+  margin: 5px 0 0 !important;
+  color: #8e887f !important;
+  font-size: 4.8px !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-actions {
+  flex-shrink: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1.25fr .75fr !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-actions button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 25px !important;
+  height: 25px !important;
+  padding: 0 5px !important;
+  border-radius: 3px !important;
+  font-size: 5.2px !important;
+  letter-spacing: .07em !important;
+}
+
+@media (max-width: 320px) {
+  .vc-booking-panel--confirmed {
+    width: calc(100vw - 16px) !important;
+    height: min(780px, calc(100vh - 16px)) !important;
+  }
+}
+
+
+.vc-booking-panel--time .vc-time-date-rail > button span:first-child {
+  font-size: 5px !important;
+}
+.vc-booking-panel--time .vc-time-date-rail > button span:nth-child(2) {
+  font-size: 12px !important;
+}
+.vc-booking-panel--time .vc-time-date-rail > button span:nth-child(3) {
+  font-size: 5px !important;
+}
+
+/* =========================================================
+   VIBE CUT — STEP 2 TIME TEXT ONLY
+   Keep the Step 2 panel size and layout unchanged.
+   Increase only the time-slot label readability to match
+   the supplied reference.
+   ========================================================= */
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid button {
+  font-size: 7px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: clip !important;
+}
+
+
+/* =========================================================
+   VIBE CUT — STEP 2 FINAL REFERENCE TUNING
+   Only Step 2 internals are adjusted here.
+   The outer panel dimensions remain identical to Step 1.
+   ========================================================= */
+
+.vc-booking-panel--time {
+  width: min(460px, calc(100vw - 16px)) !important;
+  max-width: 460px !important;
+  height: min(780px, calc(100vh - 16px)) !important;
+  max-height: calc(100vh - 16px) !important;
+}
+
+/* Match Step 1 heading scale. */
+.vc-booking-panel--time .vc-booking-title {
+  font-size: 27px !important;
+  line-height: 1 !important;
+  letter-spacing: -.025em !important;
+}
+
+.vc-booking-panel--time .vc-booking-subtitle {
+  font-size: 9px !important;
+  margin-top: 6px !important;
+}
+
+/* Remove the large vertical gaps between:
+   Back -> Select Date -> Select Time. */
+.vc-booking-panel--time .vc-time-step {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  min-height: 0 !important;
+}
+
+/* Tailwind space-y margins were creating the large blank gaps. */
+.vc-booking-panel--time .vc-time-step > div:first-child > * {
+  margin-top: 0 !important;
+}
+
+/* Back button: compact, but readable. */
+.vc-booking-panel--time .vc-time-step > div:first-child > div:first-child {
+  margin: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step button.inline-flex {
+  font-size: 8px !important;
+  letter-spacing: .08em !important;
+  gap: 3px !important;
+}
+
+/* Section headings. */
+.vc-booking-panel--time .vc-time-section-label {
+  margin: 0 0 5px !important;
+}
+
+.vc-booking-panel--time .vc-time-section-label label,
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 label {
+  font-size: 9px !important;
+  line-height: 1.1 !important;
+  letter-spacing: .12em !important;
+}
+
+/* Date row: seven cards visible and readable. */
+.vc-booking-panel--time .vc-time-date-rail {
+  gap: 4px !important;
+  padding: 0 12px 1px 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button {
+  width: 45px !important;
+  min-width: 45px !important;
+  height: 58px !important;
+  padding: 4px 2px !important;
+  border-radius: 5px !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button span:first-child {
+  font-size: 6px !important;
+  letter-spacing: .05em !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button span:nth-child(2) {
+  font-size: 17px !important;
+  line-height: 1 !important;
+}
+
+.vc-booking-panel--time .vc-time-date-rail > button span:nth-child(3) {
+  font-size: 6px !important;
+  letter-spacing: .05em !important;
+}
+
+.vc-booking-panel--time .vc-time-date-arrow {
+  width: 16px !important;
+  height: 58px !important;
+  font-size: 20px !important;
+}
+
+/* Remove extra padding before Select Time. */
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Make all 20 time slots clearly readable while retaining 5 x 4. */
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  margin-top: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid button {
+  height: 31px !important;
+  min-height: 31px !important;
+  padding: 2px 3px !important;
+  border-radius: 4px !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Keep the bottom navigation inside the fixed panel,
+   with no large empty area between the time grid and buttons. */
+.vc-booking-panel--time .vc-time-step > div:last-child {
+  margin-top: 10px !important;
+  padding-top: 8px !important;
+  grid-template-columns: 92px 1fr !important;
+  gap: 12px !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:last-child .btn-secondary,
+.vc-booking-panel--time .vc-time-step > div:last-child .btn-primary {
+  min-height: 36px !important;
+  height: 36px !important;
+  font-size: 8px !important;
+  letter-spacing: .09em !important;
+  border-radius: 4px !important;
+}
+
+/* Keep the fixed panel size on narrow screens too. */
+@media (max-width: 520px) {
+  .vc-booking-panel--time {
+    width: calc(100vw - 16px) !important;
+    height: min(780px, calc(100vh - 16px)) !important;
+    max-height: calc(100vh - 16px) !important;
+  }
+}
+
+
+/* =========================================================
+   VIBE CUT — STEP 2 TOP / SPACING FINAL FIX
+   Step 2 only. Outer panel dimensions are unchanged.
+   ========================================================= */
+
+/* Make Step 2 header match Step 1's visual scale. */
+.vc-booking-panel--time .vc-booking-header {
+  padding: 10px 12px 8px !important;
+}
+
+.vc-booking-panel--time .vc-booking-topline {
+  height: 31px !important;
+  grid-template-columns: 30px 1fr auto !important;
+  gap: 8px !important;
+}
+
+.vc-booking-panel--time .vc-booking-id {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 11px !important;
+}
+
+.vc-booking-panel--time .vc-booking-brand {
+  font-size: 12px !important;
+  letter-spacing: .16em !important;
+}
+
+.vc-booking-panel--time .vc-booking-brand small {
+  margin-top: 3px !important;
+  font-size: 4.5px !important;
+}
+
+.vc-booking-panel--time .vc-booking-step-badge {
+  padding: 5px 7px !important;
+  font-size: 6px !important;
+}
+
+/* Same large title treatment as Step 1. */
+.vc-booking-panel--time .vc-booking-title-row {
+  padding-top: 8px !important;
+}
+
+.vc-booking-panel--time .vc-booking-title {
+  font-size: 36px !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.025em !important;
+  max-width: 380px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.vc-booking-panel--time .vc-booking-subtitle {
+  margin-top: 6px !important;
+  font-size: 9px !important;
+}
+
+/* Same progress-step scale as Step 1. */
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative {
+  padding: 10px 16px 10px !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 27px !important;
+  left: 14% !important;
+  right: 14% !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  font-size: 9px !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 4px !important;
+}
+
+.vc-booking-panel--time > .flex-shrink-0 > .w-full.relative span {
+  font-size: 6px !important;
+  letter-spacing: .10em !important;
+}
+
+/* No unnecessary vertical gaps in Step 2 content. */
+.vc-booking-panel--time .vc-time-step {
+  justify-content: flex-start !important;
+  gap: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child {
+  gap: 8px !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-section-label {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Keep the CTA directly after the time grid; no large blank area. */
+.vc-booking-panel--time .vc-time-step > div:last-child {
+  margin-top: 10px !important;
+  padding-top: 8px !important;
+}
+
+/* Keep the existing Step 2 panel width/height exactly unchanged. */
+
+
+/* Keep the Step 2 CTA at the bottom edge of the fixed panel,
+   with no empty space underneath it. */
+.vc-booking-panel--time .vc-booking-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--time .vc-time-step {
+  min-height: 100% !important;
+  flex: 1 1 auto !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:last-child {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Final Step 2 time-slot sizing: larger readable times, no excess gap. */
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid {
+  gap: 6px !important;
+  margin-bottom: 0 !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:first-child > .pt-2 .grid button {
+  height: 54px !important;
+  min-height: 54px !important;
+  padding: 4px 6px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+}
+
+.vc-booking-panel--time .vc-time-step > div:last-child {
+  margin-top: 8px !important;
+  padding-top: 8px !important;
+}
+
+
+/* =========================================================
+   VIBE CUT — STEP 3 FINAL REFERENCE OVERRIDES
+   STEP 3 ONLY.
+   Panel/screen dimensions and booking functionality are untouched.
+   ========================================================= */
+
+/* Match Step 1/2 header sizing exactly */
+.vc-booking-panel--details .vc-booking-header {
+  padding: 10px 12px 8px !important;
+}
+
+.vc-booking-panel--details .vc-booking-topline {
+  height: 31px !important;
+  grid-template-columns: 30px 1fr auto !important;
+  gap: 8px !important;
+}
+
+.vc-booking-panel--details .vc-booking-id {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 11px !important;
+}
+
+.vc-booking-panel--details .vc-booking-brand {
+  font-size: 12px !important;
+  letter-spacing: .16em !important;
+}
+
+.vc-booking-panel--details .vc-booking-brand small {
+  margin-top: 3px !important;
+  font-size: 4.5px !important;
+}
+
+.vc-booking-panel--details .vc-booking-step-badge {
+  padding: 5px 7px !important;
+  font-size: 6px !important;
+}
+
+.vc-booking-panel--details .vc-booking-title-row {
+  padding-top: 8px !important;
+}
+
+.vc-booking-panel--details .vc-booking-title {
+  font-size: 27px !important;
+  line-height: 1 !important;
+  letter-spacing: -.025em !important;
+}
+
+.vc-booking-panel--details .vc-booking-subtitle {
+  margin: 6px 0 0 !important;
+  font-size: 9px !important;
+}
+
+/* Match the normal Step 1/2 progress indicator */
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative {
+  padding: 8px 20px 8px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 24px !important;
+  left: 15% !important;
+  right: 15% !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  font-size: 14px !important;
+  border-width: 1px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 10px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative span {
+  font-size: 8px !important;
+  letter-spacing: .12em !important;
+}
+
+/* Compact body: no unnecessary gaps */
+.vc-booking-panel--details .vc-booking-body {
+  padding: 0 12px 8px !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--details .vc-details-step {
+  gap: 0 !important;
+  min-height: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:first-child {
+  gap: 5px !important;
+  min-height: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:first-child > div:first-child {
+  margin-bottom: 0 !important;
+}
+
+/* Back link */
+.vc-booking-panel--details .vc-details-step button.inline-flex {
+  font-size: 7px !important;
+  letter-spacing: .08em !important;
+  gap: 3px !important;
+  margin: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step button.inline-flex svg {
+  width: 9px !important;
+  height: 9px !important;
+}
+
+/* Two columns stay compact and equal */
+.vc-booking-panel--details .vc-details-step > div:first-child > .grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 6px !important;
+  align-items: stretch !important;
+}
+
+/* YOUR DETAILS */
+.vc-booking-panel--details .vc-details-form {
+  padding: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.vc-booking-panel--details .vc-details-form-head {
+  margin-bottom: 5px !important;
+}
+
+.vc-booking-panel--details .vc-details-form-head h4 {
+  font-size: 9px !important;
+  line-height: 1 !important;
+  letter-spacing: .10em !important;
+}
+
+.vc-booking-panel--details .vc-details-form > div:last-child {
+  gap: 5px !important;
+}
+
+.vc-booking-panel--details .vc-details-form label {
+  font-size: 7px !important;
+  line-height: 1.1 !important;
+  letter-spacing: .02em !important;
+  margin-bottom: 2px !important;
+}
+
+.vc-booking-panel--details .vc-details-form .vc-details-input {
+  height: 29px !important;
+  min-height: 29px !important;
+  padding: 0 7px !important;
+  border-radius: 3px !important;
+  font-size: 8px !important;
+  line-height: 1 !important;
+}
+
+.vc-booking-panel--details .vc-details-form .vc-details-textarea {
+  height: 47px !important;
+  min-height: 47px !important;
+  padding: 6px 7px !important;
+  font-size: 7.5px !important;
+  line-height: 1.2 !important;
+}
+
+.vc-booking-panel--details .vc-details-form .mt-1\.5 {
+  margin-top: 2px !important;
+  font-size: 6px !important;
+}
+
+/* BOOKING SUMMARY */
+.vc-booking-panel--details .vc-details-summary {
+  min-width: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  border-radius: 5px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-title {
+  padding: 7px 7px 5px !important;
+  margin: 0 !important;
+  font-size: 9px !important;
+  line-height: 1 !important;
+  letter-spacing: .10em !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service {
+  grid-template-columns: 48% 52% !important;
+  height: 92px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy {
+  padding: 7px 6px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-number {
+  width: 15px !important;
+  height: 15px !important;
+  font-size: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy h5 {
+  margin: 4px 0 3px !important;
+  font-size: 15px !important;
+  line-height: 1.02 !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy p {
+  font-size: 6.2px !important;
+  line-height: 1.3 !important;
+  max-height: 22px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta {
+  padding: 7px 7px 4px !important;
+  gap: 5px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta > div {
+  grid-template-columns: 16px 1fr !important;
+  gap: 4px !important;
+}
+
+.vc-booking-panel--details .vc-summary-icon {
+  font-size: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta small {
+  font-size: 6.5px !important;
+  margin-bottom: 2px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta strong {
+  font-size: 8px !important;
+  line-height: 1.1 !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total {
+  margin-top: auto !important;
+  padding: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total span {
+  font-size: 8px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total strong {
+  font-size: 15px !important;
+}
+
+/* Confirm button directly after the content — no artificial spacing */
+.vc-booking-panel--details .vc-details-step > div:last-child {
+  margin-top: 5px !important;
+  padding-top: 5px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:last-child .btn-secondary {
+  display: none !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:last-child .btn-primary {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 8px !important;
+  border-radius: 4px !important;
+  font-size: 8px !important;
+  letter-spacing: .08em !important;
+}
+
+
+/* STEP 3 TOP — match Step 2 exactly */
+.vc-booking-panel--details .vc-booking-header {
+  padding: 10px 12px 8px !important;
+}
+
+.vc-booking-panel--details .vc-booking-topline {
+  height: 31px !important;
+  grid-template-columns: 30px 1fr auto !important;
+  gap: 8px !important;
+}
+
+.vc-booking-panel--details .vc-booking-id {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 11px !important;
+}
+
+.vc-booking-panel--details .vc-booking-brand {
+  font-size: 12px !important;
+  line-height: 1 !important;
+  letter-spacing: .16em !important;
+}
+
+.vc-booking-panel--details .vc-booking-brand small {
+  margin-top: 3px !important;
+  font-size: 4.5px !important;
+  line-height: 1 !important;
+}
+
+.vc-booking-panel--details .vc-booking-step-badge {
+  padding: 5px 7px !important;
+  font-size: 6px !important;
+  line-height: 1 !important;
+}
+
+.vc-booking-panel--details .vc-booking-title-row {
+  padding-top: 8px !important;
+  max-width: 100% !important;
+}
+
+.vc-booking-panel--details .vc-booking-title {
+  /* Same visual scale as Step 2; force the same two-line wrapping. */
+  width: 100% !important;
+  max-width: 300px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: 27px !important;
+  line-height: .98 !important;
+  letter-spacing: -.025em !important;
+  text-wrap: balance !important;
+}
+
+.vc-booking-panel--details .vc-booking-subtitle {
+  margin: 6px 0 0 !important;
+  font-size: 9px !important;
+  line-height: 1.2 !important;
+}
+
+/* Step 2-sized progress area */
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative {
+  padding: 8px 20px 8px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 24px !important;
+  left: 15% !important;
+  right: 15% !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  font-size: 14px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 10px !important;
+}
+
+.vc-booking-panel--details > .flex-shrink-0 > .w-full.relative span {
+  font-size: 8px !important;
+  letter-spacing: .12em !important;
+}
+
+
+/* =========================================================
+   STEP 3 — FINAL CONTENT SCALE / NO SPACE AFTER CONFIRM
+   Panel dimensions remain unchanged.
+   ========================================================= */
+
+/* Let Step 3 content use the available panel height. */
+.vc-booking-panel--details .vc-booking-body {
+  padding-bottom: 8px !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--details .vc-details-step {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+}
+
+/* Keep the back link compact, but readable. */
+.vc-booking-panel--details .vc-details-step button.inline-flex {
+  font-size: 8px !important;
+  line-height: 1 !important;
+}
+
+/* Make the two Step 3 panels visibly larger like the reference. */
+.vc-booking-panel--details .vc-details-step > div:first-child {
+  gap: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:first-child > .grid {
+  gap: 7px !important;
+  align-items: stretch !important;
+}
+
+/* YOUR DETAILS — larger labels and fields */
+.vc-booking-panel--details .vc-details-form-head {
+  margin-bottom: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-form-head h4 {
+  font-size: 11px !important;
+  line-height: 1 !important;
+  letter-spacing: .10em !important;
+}
+
+.vc-booking-panel--details .vc-details-form > div:last-child {
+  gap: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-form label {
+  display: block !important;
+  font-size: 8px !important;
+  line-height: 1.15 !important;
+  font-weight: 700 !important;
+  letter-spacing: .02em !important;
+  margin-bottom: 3px !important;
+}
+
+.vc-booking-panel--details .vc-details-form .vc-details-input {
+  height: 39px !important;
+  min-height: 39px !important;
+  padding: 0 9px !important;
+  border-radius: 4px !important;
+  font-size: 9px !important;
+  line-height: 1 !important;
+}
+
+.vc-booking-panel--details .vc-details-form .vc-details-textarea {
+  height: 67px !important;
+  min-height: 67px !important;
+  padding: 8px 9px !important;
+  border-radius: 4px !important;
+  font-size: 9px !important;
+  line-height: 1.25 !important;
+}
+
+.vc-booking-panel--details .vc-details-form .mt-1\.5 {
+  margin-top: 2px !important;
+  font-size: 7px !important;
+}
+
+/* BOOKING SUMMARY — scale all text/card content up */
+.vc-booking-panel--details .vc-details-summary-title {
+  padding: 9px 9px 7px !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  letter-spacing: .10em !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service {
+  grid-template-columns: 48% 52% !important;
+  height: 118px !important;
+  min-height: 118px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy {
+  padding: 9px 8px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-number {
+  width: 18px !important;
+  height: 18px !important;
+  font-size: 8px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy h5 {
+  margin: 5px 0 4px !important;
+  font-size: 18px !important;
+  line-height: 1.02 !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy p {
+  font-size: 7px !important;
+  line-height: 1.3 !important;
+  max-height: 28px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta {
+  padding: 9px 9px 5px !important;
+  gap: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta > div {
+  grid-template-columns: 18px 1fr !important;
+  gap: 5px !important;
+}
+
+.vc-booking-panel--details .vc-summary-icon {
+  font-size: 10px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta small {
+  font-size: 7px !important;
+  margin-bottom: 2px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta strong {
+  font-size: 9px !important;
+  line-height: 1.1 !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total {
+  margin-top: auto !important;
+  padding: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total span {
+  font-size: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total strong {
+  font-size: 18px !important;
+}
+
+/* Confirm button: directly after the enlarged content, no empty gap. */
+.vc-booking-panel--details .vc-details-step > div:last-child {
+  margin-top: 7px !important;
+  padding-top: 7px !important;
+  flex-shrink: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:last-child .btn-primary {
+  width: 100% !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 0 10px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .10em !important;
+  border-radius: 5px !important;
+}
+
+
+/* FINAL STEP 3 HEADER SCALE — same visual size as STEP 2 */
+.vc-booking-panel--details .vc-booking-title {
+  font-size: 27px !important;
+  line-height: .98 !important;
+  font-weight: 600 !important;
+  max-width: 310px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  letter-spacing: -.025em !important;
+}
+
+.vc-booking-panel--details .vc-booking-subtitle {
+  font-size: 9px !important;
+  margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   STEP 3 — FINAL SPACE-FREE SUMMARY / FORM
+   ========================================================= */
+
+/* Use the full existing panel height without changing its size. */
+.vc-booking-panel--details .vc-booking-body {
+  padding-bottom: 6px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.vc-booking-panel--details .vc-details-step {
+  min-height: 0 !important;
+  height: 100% !important;
+  flex: 1 1 auto !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:first-child {
+  min-height: 0 !important;
+  gap: 6px !important;
+}
+
+/* The form + summary occupy more of the panel instead of leaving a gap. */
+.vc-booking-panel--details .vc-details-step > div:first-child > .grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 7px !important;
+  align-items: stretch !important;
+}
+
+/* Larger, readable form. */
+.vc-booking-panel--details .vc-details-form-head h4 {
+  font-size: 11px !important;
+}
+
+.vc-booking-panel--details .vc-details-form > div:last-child {
+  gap: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-form label {
+  font-size: 8px !important;
+  margin-bottom: 3px !important;
+}
+
+.vc-booking-panel--details .vc-details-form .vc-details-input {
+  height: 42px !important;
+  min-height: 42px !important;
+  font-size: 9px !important;
+  padding: 0 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-form .vc-details-textarea {
+  height: 76px !important;
+  min-height: 76px !important;
+  font-size: 9px !important;
+  padding: 8px 9px !important;
+}
+
+/* Larger booking summary image and readable service text. */
+.vc-booking-panel--details .vc-details-summary {
+  height: 100% !important;
+  min-height: 320px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-title {
+  font-size: 11px !important;
+  padding: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service {
+  grid-template-columns: 50% 50% !important;
+  height: 145px !important;
+  min-height: 145px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-image {
+  min-height: 145px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy {
+  padding: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-number {
+  width: 19px !important;
+  height: 19px !important;
+  font-size: 8px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy h5 {
+  font-size: 18px !important;
+  line-height: 1.02 !important;
+  margin: 6px 0 4px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-service-copy p {
+  font-size: 7px !important;
+  line-height: 1.3 !important;
+  max-height: 30px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta {
+  padding: 9px !important;
+  gap: 8px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta > div {
+  grid-template-columns: 19px 1fr !important;
+  gap: 5px !important;
+}
+
+.vc-booking-panel--details .vc-summary-icon {
+  font-size: 10px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta small {
+  font-size: 7px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-meta strong {
+  font-size: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total {
+  padding: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total span {
+  font-size: 9px !important;
+}
+
+.vc-booking-panel--details .vc-details-summary-total strong {
+  font-size: 18px !important;
+}
+
+/* Confirm button sits at the bottom of the fixed panel, with no blank area after it. */
+.vc-booking-panel--details .vc-details-step > div:last-child {
+  margin-top: auto !important;
+  padding-top: 6px !important;
+  padding-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.vc-booking-panel--details .vc-details-step > div:last-child .btn-primary {
+  height: 50px !important;
+  min-height: 50px !important;
+  font-size: 10px !important;
+  letter-spacing: .10em !important;
+  padding: 0 10px !important;
+}
+/* =========================================================
+   VIBE CUT — STEP 4 FINAL SIZE / SPACE-FREE OVERRIDE
+   STEP 1, STEP 2 AND STEP 3 ARE NOT TOUCHED.
+   Outer panel dimensions remain unchanged.
+   ========================================================= */
+
+.vc-booking-panel--confirmed {
+  width: min(460px, calc(100vw - 16px)) !important;
+  max-width: 460px !important;
+  height: min(780px, calc(100vh - 16px)) !important;
+  max-height: calc(100vh - 16px) !important;
+  overflow: hidden !important;
+}
+
+/* ---------- STEP 4 TOP: SAME SCALE AS STEP 2 ---------- */
+
+.vc-booking-panel--confirmed .vc-booking-header {
+  padding: 10px 12px 8px !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-topline {
+  height: 31px !important;
+  grid-template-columns: 30px 1fr auto !important;
+  gap: 8px !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-id {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 11px !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-brand {
+  font-size: 12px !important;
+  line-height: 1 !important;
+  letter-spacing: .16em !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-brand small {
+  margin-top: 3px !important;
+  font-size: 4.5px !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-step-badge {
+  padding: 5px 7px !important;
+  font-size: 6px !important;
+  line-height: 1 !important;
+}
+
+/* BIG BOOK YOUR APPOINTMENT — SAME AS STEP 2 */
+
+.vc-booking-panel--confirmed .vc-booking-title-row {
+  padding-top: 8px !important;
+  max-width: 100% !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-title {
+  width: 100% !important;
+  max-width: 300px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: 27px !important;
+  line-height: .98 !important;
+  letter-spacing: -.025em !important;
+  text-wrap: balance !important;
+}
+
+.vc-booking-panel--confirmed .vc-booking-subtitle {
+  margin: 6px 0 0 !important;
+  font-size: 9px !important;
+  line-height: 1.2 !important;
+}
+
+/* ---------- STEP 4 PROGRESS — SAME SCALE AS STEP 2 ---------- */
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative {
+  padding: 8px 20px 8px !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative > .absolute {
+  top: 24px !important;
+  left: 15% !important;
+  right: 15% !important;
+  background: rgba(200,164,90,.20) !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .w-11,
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .sm\:w-14 {
+  width: 27px !important;
+  height: 27px !important;
+  min-width: 27px !important;
+  font-size: 8px !important;
+  box-shadow: none !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .mt-2\.5,
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative .sm\:mt-3 {
+  margin-top: 4px !important;
+}
+
+.vc-booking-panel--confirmed > .flex-shrink-0 > .w-full.relative span {
+  font-size: 6px !important;
+  letter-spacing: .14em !important;
+}
+
+/* ---------- REMOVE ARTIFICIAL EMPTY SPACE ---------- */
+
+.vc-booking-panel--confirmed .vc-booking-body {
+  padding: 0 12px 10px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-step {
+  min-height: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+/* Confirmation card fills the available area,
+   but its contents are now large and readable. */
+
+.vc-booking-panel--confirmed .vc-confirmed-card {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 18px 10px 10px !important;
+  border: 1px solid rgba(200,164,90,.40) !important;
+  border-radius: 5px !important;
+  background: #020d19 !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+/* ---------- CONFIRMATION ICON ---------- */
+
+.vc-booking-panel--confirmed .vc-confirmed-check {
+  width: 42px !important;
+  height: 42px !important;
+  margin: 0 auto 8px !important;
+  border: 1px solid rgba(223,194,126,.85) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-check svg {
+  width: 23px !important;
+  height: 23px !important;
+}
+
+/* ---------- APPOINTMENT REQUEST CONFIRMED ---------- */
+
+.vc-booking-panel--confirmed .vc-confirmed-title {
+  margin: 0 !important;
+  font-family: var(--font-family-display) !important;
+  font-size: 17px !important;
+  line-height: 1.08 !important;
+  font-weight: 500 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-title span {
+  color: #d9ae4f !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-copy {
+  margin: 6px 0 9px !important;
+  color: #a9a196 !important;
+  font-size: 8px !important;
+  line-height: 1.4 !important;
+}
+
+/* ---------- REFERENCE ID ---------- */
+
+.vc-booking-panel--confirmed .vc-confirmed-reference {
+  min-height: 44px !important;
+  padding: 7px 9px !important;
+  margin-bottom: 7px !important;
+  gap: 6px !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-reference span {
+  font-size: 6px !important;
+  letter-spacing: .09em !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-reference strong {
+  font-size: 12px !important;
+  letter-spacing: .06em !important;
+}
+
+.vc-booking-panel--confirmed .vc-copy-reference {
+  font-size: 10px !important;
+}
+
+/* ---------- LARGE, CLEAR DETAILS ---------- */
+
+.vc-booking-panel--confirmed .vc-confirmed-details {
+  width: 100% !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details > div {
+  min-height: 32px !important;
+  padding: 5px 8px !important;
+  grid-template-columns: 18px 70px 1fr !important;
+  gap: 5px !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-detail-icon {
+  font-size: 9px !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-detail-label {
+  font-size: 7px !important;
+  line-height: 1.1 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-details strong {
+  font-size: 7.5px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- WHATSAPP MESSAGE ---------- */
+
+.vc-booking-panel--confirmed .vc-confirmed-whatsapp {
+  margin: 7px 0 0 !important;
+  color: #8e887f !important;
+  font-size: 6.5px !important;
+  line-height: 1.3 !important;
+}
+
+/* ---------- BOTTOM BUTTONS — NO SPACE AFTER THEM ---------- */
+
+.vc-booking-panel--confirmed .vc-confirmed-actions {
+  flex-shrink: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1.25fr .75fr !important;
+  gap: 8px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.vc-booking-panel--confirmed .vc-confirmed-actions button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 43px !important;
+  height: 43px !important;
+  padding: 0 8px !important;
+  border-radius: 4px !important;
+  font-size: 7px !important;
+  letter-spacing: .08em !important;
+}
+
+/* ---------- SMALL SCREEN ---------- */
+
+@media (max-width: 520px) {
+  .vc-booking-panel--confirmed .vc-booking-title {
+    font-size: clamp(20px, 7vw, 27px) !important;
+  }
+
+  .vc-booking-panel--confirmed .vc-confirmed-title {
+    font-size: 15px !important;
+  }
+
+  .vc-booking-panel--confirmed .vc-confirmed-details > div {
+    min-height: 29px !important;
+  }
+}
+/* =========================================================
+   VIBE CUT ADMIN — scoped styles
+   ========================================================= */
+.vc-admin-page{min-height:100vh;background:#02080f;color:#f5f0e5;padding:28px;font-family:Arial,Helvetica,sans-serif}
+.vc-admin-header{max-width:1200px;margin:0 auto 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.vc-admin-kicker{color:#dcae46;font-size:10px;letter-spacing:.22em;margin-bottom:6px}
+.vc-admin-header h1{margin:0;font-family:Georgia,serif;font-size:32px;font-weight:500;letter-spacing:.02em}
+.vc-admin-logout,.vc-admin-toolbar button,.vc-admin-block-row button{border:1px solid #806323;background:#071522;color:#dcae46;border-radius:4px;padding:10px 14px;font-weight:700;cursor:pointer}
+.vc-admin-stats{max-width:1200px;margin:0 auto 16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.vc-admin-stat{background:#031321;border:1px solid #5a481d;border-radius:7px;padding:16px}
+.vc-admin-stat span{display:block;color:#999;font-size:9px;letter-spacing:.14em}
+.vc-admin-stat strong{display:block;color:#dcae46;font:500 28px Georgia,serif;margin-top:7px}
+.vc-admin-toolbar,.vc-admin-panel{max-width:1200px;margin:0 auto 16px;background:#031321;border:1px solid #5a481d;border-radius:7px}
+.vc-admin-toolbar{padding:12px;display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px}
+.vc-admin-toolbar input,.vc-admin-toolbar select,.vc-admin-block-row input{width:100%;box-sizing:border-box;background:#020a12;border:1px solid #4b4028;color:#fff;border-radius:4px;padding:10px}
+.vc-admin-panel-title{padding:13px 15px;border-bottom:1px solid #4b3c1c;color:#dcae46;font-size:10px;letter-spacing:.16em}
+.vc-admin-table-wrap{overflow:auto}.vc-admin-table{width:100%;border-collapse:collapse;min-width:900px}
+.vc-admin-table th,.vc-admin-table td{padding:12px;border-bottom:1px solid #1c2933;text-align:left;font-size:12px;vertical-align:middle}
+.vc-admin-table th{color:#999;font-size:9px;letter-spacing:.1em;font-weight:600}
+.vc-admin-table td strong{display:block}.vc-admin-table td small{display:block;color:#777;margin-top:3px}
+.vc-actions{display:flex;gap:5px;flex-wrap:wrap}.vc-actions button{background:#071522;border:1px solid #806323;color:#dcae46;border-radius:3px;padding:6px 8px;font-size:8px;font-weight:700;cursor:pointer}
+.vc-actions button:disabled,.vc-admin-toolbar button:disabled,.vc-admin-block-row button:disabled{opacity:.45;cursor:not-allowed}
+.vc-status{font-size:8px;text-transform:uppercase;letter-spacing:.08em;padding:5px 7px;border:1px solid #5a481d;border-radius:3px}.vc-status-confirmed{color:#b8df9a}.vc-status-pending{color:#dcae46}.vc-status-cancelled,.vc-status-rejected{color:#df8b8b}.vc-status-completed{color:#9bc9e6}
+.vc-admin-empty,.vc-admin-loading{padding:40px;text-align:center;color:#888}.vc-admin-wide{max-width:1200px;margin:0 auto 16px}.vc-admin-error{background:#241316;border:1px solid #71343b;color:#ffb3b8;border-radius:5px;padding:10px;font-size:12px}
+.vc-admin-blocks{display:grid;grid-template-columns:1fr 1fr;gap:0}.vc-admin-blocks>div+div{border-left:1px solid #4b3c1c}.vc-admin-block-row{padding:14px;display:flex;gap:8px}.vc-admin-block-row input{max-width:220px}.vc-admin-chips{padding:14px;display:flex;gap:7px;flex-wrap:wrap}.vc-admin-chips span{border:1px solid #5a481d;border-radius:3px;padding:6px 8px;color:#dcae46;font-size:10px}.vc-admin-chips em{color:#777;font-size:11px}
+.vc-admin-auth-card{width:min(420px,100%);box-sizing:border-box;background:#031321;border:1px solid #8d6a25;border-radius:8px;padding:30px}.vc-admin-auth-card h1{font:500 31px Georgia,serif;margin:0 0 7px}.vc-admin-auth-card p{color:#999;font-size:12px;margin:0 0 22px}.vc-admin-page:has(.vc-admin-auth-card){display:grid;place-items:center}.vc-admin-form{display:grid;gap:7px}.vc-admin-form label{font-size:10px;color:#bbb;margin-top:6px}.vc-admin-form input{background:#020a12;border:1px solid #4b4028;color:#fff;border-radius:4px;padding:11px}.vc-admin-form button{margin-top:10px;height:44px;border:0;border-radius:4px;background:#dcae46;color:#090909;font-weight:800;cursor:pointer}.vc-admin-form button:disabled{opacity:.6}.vc-admin-form .vc-admin-error{margin-top:5px}
+@media(max-width:800px){.vc-admin-page{padding:16px}.vc-admin-stats{grid-template-columns:1fr 1fr}.vc-admin-toolbar{grid-template-columns:1fr 1fr}.vc-admin-blocks{grid-template-columns:1fr}.vc-admin-blocks>div+div{border-left:0;border-top:1px solid #4b3c1c}.vc-admin-header h1{font-size:24px}}
+@media(max-width:500px){.vc-admin-stats{grid-template-columns:1fr 1fr}.vc-admin-toolbar{grid-template-columns:1fr}.vc-admin-header{align-items:flex-start;flex-direction:column}}

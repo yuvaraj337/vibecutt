@@ -34,7 +34,7 @@ export async function getBookedTimes(
           appointment.appointment_date === appointmentDate &&
           appointment.status !== "cancelled"
       )
-      .map((appointment) => appointment.start_time);
+      .map((appointment) => appointment.appointment_time);
   }
 
   const { data, error } = await supabase

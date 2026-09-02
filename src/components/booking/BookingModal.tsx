@@ -245,9 +245,28 @@ export default function BookingModal({
       });
 
       if (result.success && result.appointment) {
-        setConfirmedAppointment(result.appointment);
-        setStep("confirmed");
-      } else {
+  void fetch("/api/booking-webhook", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      full_name: customerDetails.fullName.trim(),
+      phone: phoneValidation.formatted,
+      email: customerDetails.email?.trim() || "",
+      service: selectedService.name,
+      appointment_date: selectedDate.fullDateString,
+      appointment_time: selectedTime,
+      notes: customerDetails.notes?.trim() || "",
+      booking_id: result.appointment.id,
+    }),
+  }).catch((error) => {
+    console.error("Failed to trigger booking automation:", error);
+  });
+
+  setConfirmedAppointment(result.appointment);
+  setStep("confirmed");
+} else {
         // Slot conflict or creation error
         const errorMessage =
           result.error ||
